@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>FSE Chat</title>
+		<link rel="stylesheet" href="main.css">
+	</head>
+	<body>
+		<div id ="entry" disabled="false">
+			<h1>Welcome to FSE chat</h1>
+			<input type ="text" size="40" name="username" id="username"
+				placeholder="Enter username..." autofocus/>
+			<button type="button" id="submit_button">Enter chatroom</button>
+		</div>
+		<div id ="chat_room" disabled="true">
+			<h1>FSE Chat</h1>
+			<script src = "/socket.io/socket.io.js"></script>
+			<div id = "chat_console">	
+			</div>
+			<form id="chat_form">
+			<input type ="text" size="100" name="chat_input" id="chat_input"
+			placeholder="type your message here..." autofocus
+			autocomplete="off"><br>
+			<input type ="submit" value ="send"/>
+			</form>
+			<input id="leave_chat" type="button" value="Leave Chat"/>
+		</div>	
+		<script>
+			var server = io.connect('http://localhost:8080')
+			var nickname;
+
+			document.getElementById('submit_button').onclick = function(e) {
+				e.preventDefault();
+				nickname = document.getElementById('username').value;
+				server.emit('join', nickname);
+				document.getElementById('entry').disabled = "true";
+				document.getElementById('chat_room').disabled = "false";
+			};
+
+			document.getElementById('chat_form').onsubmit = function(e) {
+				e.preventDefault();
+				var message = document.getElementById('chat_input').value;
+				server.emit('messages', message);
+				var new_message = document.createElement('span');
+				new_message.innerHTML = nickname + ' : ' + message + '<br/>';
+				var console = document.getElementById('chat_console');
+				console.appendChild(new_message);
+				chat_input.value=null;
+
+			};
+			server.on('connect', function(data){
+				alert('Connected...');
+				// var console = document.getElementById('chat_console');
+				// nickname = prompt('What is your nickname?');
+				// server.emit('join', nickname);
+
+			});
+			server.on('messages', function(data){
+				var new_message = document.createElement('span');
+				new_message.innerHTML = data + '<br/>';
+				var console = document.getElementById('chat_console');
+				console.appendChild(new_message);
+			});
+			document.getElementById("leave_chat").onclick = function(e) {
+				e.preventDefault();
+				window.location.href = "index.html";
+			};
+
+			document.getElementById()
+		</script>
+</html>

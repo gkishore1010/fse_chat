@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>FSE Chat</title>
+	<link rel="stylesheet" type="text/css" href="welcome.css">
+	<script src = "/socket.io/socket.io.js"></script>
+</head>
+<body>
+<h1>Welcome to FSE Chat</h1>
+	<form id="entry_form">
+		<input type ="text" size="40" name="username" id="username"
+			placeholder="Enter username..." autofocus>
+		<input type ="submit" value ="Enter chatroom"/>
+	</form>
+<script language="javascript" type="text/javascript">
+	var server = io.connect('http://localhost:8080')
+	var nickname;
+	document.getElementById('entry_form').onsubmit = function(e) {
+		e.preventDefault();
+		username = document.getElementById('username').value;
+		window.location.href="/foo";
+		server.emit('join', username);
+	};
+</script>
+</body>
+</html>
