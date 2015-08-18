@@ -5,15 +5,34 @@
 		<link rel="stylesheet" href="main.css">
 	</head>
 	<body>
+<<<<<<< HEAD
 		<h1>FSE Chat</h1>
 		<script src = "/socket.io/socket.io.js"></script>
 		<div id = "chat_console">	
 		</div>
 		<form id="chat_form">
+=======
+		<div class ="entry" disabled="false">
+			<h1>Welcome to FSE chat</h1>
+			<form id ="entry_form">
+			<input type ="text" size="40" name="username" id="username"
+				placeholder="Enter username..." autofocus/>
+			<input type="submit" id="submit_button" value= "Enter chatroom"></input>
+			<input id="leave_chat" type="button" value="Leave chatroom"></input>
+		</form>
+		</div>
+		<div class ="chat_room" disabled="true">
+			<h1>FSE Chat</h1>
+			<script src = "/socket.io/socket.io.js"></script>
+			<div id = "chat_console">	
+			</div>
+			<form id="chat_form">
+>>>>>>> test
 			<input type ="text" size="100" name="chat_input" id="chat_input"
 			placeholder="type your message here..." autofocus
 			autocomplete="off"><br>
 			<input type ="submit" value ="send"/>
+<<<<<<< HEAD
 		</form>
 		<input id="leave_chat" type="button" value="Leave Chat"/>	
 		<script>
@@ -49,4 +68,9 @@
 
 			document.getElementById()
 		</script>
+=======
+			</form>
+		</div>	
+		<script src="client.js"></script>
+>>>>>>> test
 </html>

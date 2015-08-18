@@ -21,11 +21,19 @@ io.on('connection', function(client){
 	console.log('Client connected...');
 	client.on('join', function(name){
 		client.nickname = name;
+<<<<<<< HEAD
+=======
+
+>>>>>>> test
 		db.serialize(function(){	
 			var stmt = db.prepare("INSERT INTO Usr VALUES (?)");
 			stmt.run(name);
 			stmt.finalize();
 		});
+<<<<<<< HEAD
+=======
+
+>>>>>>> test
 		db.each("SELECT rowid as id, chats FROM Msg", function(err,row){
 			client.emit("messages", row.chats);
 		});
@@ -42,8 +50,31 @@ io.on('connection', function(client){
 			});
 		});
 
+<<<<<<< HEAD
 });
 app.get('/', function (req, res) {
  res.sendFile(__dirname + '/welcome_page.html');
+=======
+	client.on('remove user', function (nickname){
+		console.log(nickname + " has left chatroom");
+		db.each("SELECT chatters FROM Usr", function(err,row){
+		console.log(row.chatters);
+		console.log("before deletion");
+		});
+		db.run("DELETE FROM Usr WHERE chatters= ?", [nickname], function(err){
+			if(err){
+			console.log(err);
+			}
+		});
+		db.each("SELECT chatters FROM Usr", function(err,row){
+			console.log(row.chatters);
+		});
+			
+	});
+});	
+
+app.get('/', function (req, res) {
+ res.sendFile(__dirname + '/index.html');
+>>>>>>> test
 });
 server.listen(8080);
