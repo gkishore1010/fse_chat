@@ -27,6 +27,7 @@ io.on('connection', function(client){
 			stmt.run(name);
 			stmt.finalize();
 		});
+
 		db.each("SELECT rowid as id, chats FROM Msg", function(err,row){
 			client.emit("messages", row.chats);
 		});
@@ -43,7 +44,24 @@ io.on('connection', function(client){
 			});
 		});
 
-});
+	client.on('remove user', function (nickname){
+		console.log(nickname + " has left chatroom");
+		db.each("SELECT chatters FROM Usr", function(err,row){
+		console.log(row.chatters);
+		console.log("before deletion");
+		});
+		db.run("DELETE FROM Usr WHERE chatters= ?", [nickname], function(err){
+			if(err){
+			console.log(err);
+			}
+		});
+		db.each("SELECT chatters FROM Usr", function(err,row){
+			console.log(row.chatters);
+		});
+			
+	});
+});	
+
 app.get('/', function (req, res) {
  res.sendFile(__dirname + '/index.html');
 });

@@ -1,4 +1,4 @@
-body {
+			body {
     			width: 1000px;
     			border:3px solid #8AC007;
     			padding: 10px;
@@ -13,16 +13,23 @@ body {
 				padding-left: 20px;
 			}
 			input[type=submit] {
+				width: 120px;
 				font-size: 24px;
+			}
+
+			input[type=button] {
+    			width: 120px;
+    			font-size: 24px;
 			}
 			#chat_console {
     			width: 800px;
     			height: 300px;
-    			border:3px solid #FF0000;
+    			border:1px solid #666;
     			margin-bottom: 30px;
     			padding: 10px;
     			padding-left:20px; 	
-
+    			overflow-y: auto;
+    			padding-bottom: 10px;
 			}
 			h1 {
 				text-align: center;
@@ -30,4 +37,7 @@ body {
 			.connected {
 				font-style: italic;
 				color: #606060;
+			}
+			span {
+				text-align: justify;
 			}
