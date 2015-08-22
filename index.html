@@ -5,16 +5,17 @@
 		<link rel="stylesheet" href="main.css">
 	</head>
 	<body>
-		<div class ="entry" disabled="false">
+		<script src = "/socket.io/socket.io.js"></script>
+		<div class ="entry">
 			<h1>Welcome to FSE chat</h1>
 			<form id ="entry_form">
 			<input type ="text" size="40" name="username" id="username"
-				placeholder="Enter username..." autofocus/>
+				placeholder="Enter username..." autofocus></input>
 			<input type="submit" id="submit_button" value= "Enter chatroom"></input>
 			<input id="leave_chat" type="button" value="Leave chatroom"></input>
 		</form>
 		</div>
-		<div class ="chat_room" disabled="true">
+		<div class ="chat_room">
 			<h1>FSE Chat</h1>
 			<script src = "/socket.io/socket.io.js"></script>
 			<div id = "chat_console">	

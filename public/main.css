@@ -41,3 +41,20 @@
 			span {
 				text-align: justify;
 			}
+			
+
+			div.chat_message {
+				background-color: #d3d3d3;
+			}
+			div.username {
+			    left: 0;
+
+			}
+
+			div.timestamp {
+			    right: 0;
+			}
+			div.message {
+
+			    left: 0;
+			}
