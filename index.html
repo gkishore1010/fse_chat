@@ -1,31 +1,34 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>FSE Chat</title>
+		<title>FSE Chat Room</title>
 		<link rel="stylesheet" href="main.css">
 	</head>
 	<body>
 		<script src = "/socket.io/socket.io.js"></script>
+		<script src = "jquery-2.1.4.js"></script>
 		<div class ="entry">
-			<h1>Welcome to FSE chat</h1>
-			<form id ="entry_form">
-			<input type ="text" size="40" name="username" id="username"
-				placeholder="Enter username..." autofocus></input>
-			<input type="submit" id="submit_button" value= "Enter chatroom"></input>
-			<input id="leave_chat" type="button" value="Leave chatroom"></input>
-		</form>
-		</div>
-		<div class ="chat_room">
-			<h1>FSE Chat</h1>
-			<script src = "/socket.io/socket.io.js"></script>
-			<div id = "chat_console">	
+			<div id ="entry_form">
+				<input type ="text" name="username" id="username"
+					placeholder="Enter username..." autofocus="true"></input>
+				<input type="submit" id="submit_button" value= "Enter Chatroom"></input>
 			</div>
+		</div>
+		<div class ="chat_room" id="chatRoom" style="display:none;">
+			<script src = "/socket.io/socket.io.js"></script>
 			<form id="chat_form">
+			<div id ="chatTitle">
+			<h3>FSE Chat Room<h3>
+			</div>	
+			<div id = "chat_console">
+			</div>
 			<input type ="text" size="100" name="chat_input" id="chat_input"
-			placeholder="type your message here..." autofocus
-			autocomplete="off"><br>
-			<input type ="submit" value ="send"/>
+			placeholder="type your message here..." autofocus="true"
+			autocomplete="off"/>
+			<input type ="submit" id="submitChat" value ="Post"/><br>
+			<input id="leaveChat" type="button" value="Leave Chat" style="display:none;"></input>
 			</form>
 		</div>	
 		<script src="client.js"></script>
+	</body>
 </html>

@@ -1,35 +1,36 @@
 			body {
-    			width: 1000px;
-    			border:3px solid #8AC007;
+    			
     			padding: 10px;
-    			padding-left: 50px;	
+    			
 
 			}
 			input[type=text] {
 				font-size: 15px;
-				border: 2px solid #aaaaaa;
+				border: 1px solid #666;
 				margin-bottom: 20px;
-				padding-top: 30px;
-				padding-left: 20px;
+				padding-top: 20px;
+				padding-left:10px;
+				margin-left: 10px;
 			}
 			input[type=submit] {
-				width: 120px;
-				font-size: 24px;
+				width: 130px;
+				font-size: 15px;
+				color: #fff;
+  				background-color: #6496c8;
+  				border: none;
 			}
-
 			input[type=button] {
     			width: 120px;
-    			font-size: 24px;
+    			font-size: 15px;
+    			color: #fff;
+  				background-color: #6496c8;
+  				border: none;
 			}
 			#chat_console {
-    			width: 800px;
     			height: 300px;
-    			border:1px solid #666;
-    			margin-bottom: 30px;
-    			padding: 10px;
-    			padding-left:20px; 	
+    			margin-bottom: 10px;
+    			padding: 10px;	
     			overflow-y: auto;
-    			padding-bottom: 10px;
 			}
 			h1 {
 				text-align: center;
@@ -41,20 +42,55 @@
 			span {
 				text-align: justify;
 			}
-			
+			#chatTitle {
+				position: static;
+				text-align: center;
+			}
+			#submit_button {
+				padding: 10px;
+				padding-right: 15px;
+				position: relative;
+				top: -8px;
+				right: -8px;
+				text-align: left;
+			}
+			#submitChat {
+				padding: 10px;
+				position: relative;
+				top: -8px;
+				right: -10px;
+			}
 
-			div.chat_message {
+			#leaveChat {
+				position: relative;
+				left: 10px;
+				top: -5px;
+				padding: 10px;
+			}
+			.chat_message {
+				position: relative;
 				background-color: #d3d3d3;
+				color: black;
+				border: 1px solid white;
+				padding: 5px;
 			}
-			div.username {
-			    left: 0;
-
+			.username {
+			    text-align: left;
+			    font-size: 20px;
+			    float: left;
+			    font-weight: bold;
+			    margin-left: 5px;
 			}
 
-			div.timestamp {
-			    right: 0;
+			.timestamp {
+				position: absolute;
+				right:0;
+			  	margin-right: 3px;
+			    font-size: 12px;
+			    padding-left: 400px;
 			}
 			div.message {
-
-			    left: 0;
+				clear: left;
+			    word-wrap: break-word;
+			    margin-left: 5px;
 			}
